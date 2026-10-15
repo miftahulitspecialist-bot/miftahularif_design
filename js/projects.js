@@ -13,7 +13,7 @@ const PROJECTS = [
     ratio: "4:5",
     description: "Logo, color palette, and visual guidelines that help small businesses look consistent.",
     tools: ["Illustrator", "Photoshop"],
-    img: "assets/images/identitas-umkm.jpg",
+    img: "assets/images/SME Visual Identity.png",
     bg: "#2f5bff", fg: "#ffffff", accent: "#ffd23f", shape: 0
   },
   {
@@ -22,6 +22,7 @@ const PROJECTS = [
     ratio: "3:4",
     description: "Brochures, business cards, and promotional materials with a unified brand identity.",
     tools: ["Illustrator", "Photoshop"],
+    img: "assets/images/Print branding materials.png",
     bg: "#ff5a36", fg: "#ffffff", accent: "#15151c", shape: 1
   },
   {
@@ -30,6 +31,7 @@ const PROJECTS = [
     ratio: "1:1",
     description: "Feed designs and digital content assets for product and service promotion.",
     tools: ["Canva", "Photoshop"],
+    img: "assets/images/Instagram content.png",
     bg: "#ffd23f", fg: "#15151c", accent: "#ff5a36", shape: 2
   },
   {
@@ -38,6 +40,7 @@ const PROJECTS = [
     ratio: "16:9",
     description: "Banners and marketing materials that support digital campaigns.",
     tools: ["Photoshop", "Canva"],
+    img: "assets/images/Digital campaign assets.png",
     bg: "#15151c", fg: "#ffffff", accent: "#2f5bff", shape: 0
   },
   {
@@ -46,6 +49,7 @@ const PROJECTS = [
     ratio: "3:4",
     description: "Posters, backdrops, and supporting materials for events.",
     tools: ["Illustrator"],
+    img: "assets/images/Event communication.png",
     bg: "#1fa67a", fg: "#ffffff", accent: "#ffd23f", shape: 2
   },
   {
