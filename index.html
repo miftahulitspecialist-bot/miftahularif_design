@@ -60,12 +60,13 @@
       </div>
     </section>
 
-    <!-- Selected work (rendered by js/main.js from js/projects.js) -->
+    <!-- Selected work, grouped per brand (rendered by js/main.js from js/projects.js) -->
     <section id="work">
       <h2>Selected work</h2>
-      <p class="lead">Design projects for digital and print. Pick a category to filter.</p>
-      <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
-      <div class="board" id="board"></div>
+      <p class="lead">Design projects grouped per brand, from identity to print, social media, and campaigns. Click an image to view it full size.</p>
+      <div class="filters" id="filters" role="group" aria-label="Filter by brand"></div>
+      <div id="brands"></div>
+      <dialog id="viewer" aria-label="Project preview"><figure><img alt=""><figcaption></figcaption></figure></dialog>
     </section>
 
     <!-- Experience -->

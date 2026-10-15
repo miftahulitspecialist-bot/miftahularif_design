@@ -11,7 +11,7 @@ miftahul-arif-portfolio/
 │   └── style.css       All styles, with light/dark theme tokens
 ├── js/
 │   ├── projects.js     Project data (edit this to add work)
-│   └── main.js         Renders the project board and category filter
+│   └── main.js         Renders brand sections, projects, and image viewer
 └── assets/
     └── images/         Put project images here
 ```
@@ -24,11 +24,12 @@ Open `index.html` in a browser, or serve the folder:
 python3 -m http.server 8000
 ```
 
-## Add your real work
+## Add a brand or project
 
-1. Copy images into `assets/images/`.
-2. In `js/projects.js`, add `img: "assets/images/your-file.jpg"` to a project.
-3. Update its `title`, `description`, and `tools`.
+1. Copy images into `assets/images/` (JPG, around 1600 px wide, under 400 KB).
+2. In `js/projects.js`, copy a whole brand block inside `BRANDS` to add a new brand,
+   or copy a project block inside `projects` to add work to an existing brand.
+3. Fill in `title`, `category`, `description`, `tools`, `img`, and the image size `w` / `h`.
 
 ## Deploy
 
