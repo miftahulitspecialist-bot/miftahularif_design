@@ -1,0 +1,153 @@
+/* ==========================================================================
+   Miftahul Arif — Portfolio
+   1. Tokens  2. Base  3. Navigation  4. Hero  5. Shared  6. Skills
+   7. Work  8. Experience  9. Footer
+   ========================================================================== */
+
+/* 1. Tokens (light + dark) ------------------------------------------------ */
+:root {
+  --bg: #e6e7ec;
+  --dot: #c3c5d0;
+  --panel: #f7f7fa;
+  --ink: #15151c;
+  --muted: #5d5f70;
+  --line: #cfd1dc;
+  --sel: #2f5bff;
+  --hot: #ff5a36;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17181f; --dot: #2c2e3a; --panel: #20222b; --ink: #f0f1f7;
+    --muted: #a1a4b8; --line: #3a3d4d; --sel: #6d8dff;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17181f; --dot: #2c2e3a; --panel: #20222b; --ink: #f0f1f7;
+  --muted: #a1a4b8; --line: #3a3d4d; --sel: #6d8dff;
+}
+
+/* 2. Base ------------------------------------------------------------------ */
+html { scroll-padding-top: 70px; scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.6 'IBM Plex Sans', system-ui, sans-serif;
+  background: var(--bg) radial-gradient(var(--dot) 1.2px, transparent 1.2px) 0 0 / 22px 22px;
+}
+h1, h2, h3 { font-family: Syne, 'IBM Plex Sans', sans-serif; margin: 0; line-height: 1.02; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--sel); outline-offset: 3px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+section { padding: 64px 0; }
+h2 { font-size: clamp(30px, 5vw, 46px); font-weight: 800; margin-bottom: 10px; }
+.lead { color: var(--muted); max-width: 58ch; margin: 0 0 28px; }
+
+/* 3. Navigation ------------------------------------------------------------ */
+.bar {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.bar .wrap { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
+.bar b { font-family: Syne, sans-serif; margin-right: auto; }
+.bar a { text-decoration: none; font-size: 14px; padding: 5px 12px; border-radius: 6px; }
+.bar a:hover { background: var(--bg); }
+
+/* 4. Hero (selection box) -------------------------------------------------- */
+.hero { padding: 70px 0 90px; }
+.sel { position: relative; display: inline-block; border: 2px solid var(--sel); padding: clamp(14px, 3vw, 34px); max-width: 100%; }
+.sel h1 { font-size: clamp(48px, 11.5vw, 128px); font-weight: 800; letter-spacing: -.035em; }
+.sel h1 span { display: block; }
+.sel > i { position: absolute; width: 12px; height: 12px; background: var(--panel); border: 2px solid var(--sel); }
+.sel .tl { left: -7px; top: -7px; }
+.sel .tr { right: -7px; top: -7px; }
+.sel .bl { left: -7px; bottom: -7px; }
+.sel .br { right: -7px; bottom: -7px; }
+.sel .tm { left: calc(50% - 6px); top: -7px; }
+.sel .bm { left: calc(50% - 6px); bottom: -7px; }
+.sel .lm { left: -7px; top: calc(50% - 6px); }
+.sel .rm { right: -7px; top: calc(50% - 6px); }
+.dim { position: absolute; left: 0; bottom: -36px; background: var(--sel); color: #fff; font-size: 13px; padding: 2px 10px; white-space: nowrap; }
+.cursor {
+  position: absolute; right: -10px; bottom: -46px;
+  background: var(--hot); color: #fff; font-size: 13px; font-weight: 600;
+  padding: 3px 12px; border-radius: 0 12px 12px 12px; white-space: nowrap;
+  animation: drift 1.4s ease-out both;
+}
+@keyframes drift { from { transform: translate(70px, -60px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+.role { margin: 70px 0 24px; font-size: clamp(17px, 2.4vw, 22px); max-width: 36ch; }
+
+/* 5. Shared components ----------------------------------------------------- */
+.btn { display: inline-block; padding: 11px 22px; border-radius: 8px; font-weight: 600; text-decoration: none; border: 2px solid var(--ink); margin-right: 10px; }
+.btn.p { background: var(--ink); color: var(--bg); }
+.btn:hover { background: var(--sel); border-color: var(--sel); color: #fff; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+.panel h3 { font-size: 19px; margin-bottom: 6px; }
+.panel p { margin: 0; color: var(--muted); font-size: 15px; }
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+/* 6. Skills ---------------------------------------------------------------- */
+.tools { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.tool { display: flex; align-items: center; gap: 9px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 7px 13px; font-weight: 500; font-size: 15px; }
+.tool b { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 5px; font-size: 12px; color: #fff; font-family: Syne, sans-serif; }
+.tool .canva { background: #00a3ad; }
+.tool .ps    { background: #0b6fb8; }
+.tool .ai    { background: #d97a00; }
+.tool .pr, .tool .ae { background: #6c6cf0; }
+
+/* 7. Work (per brand) ------------------------------------------------------ */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.filters[hidden] { display: none; }
+.filters button { cursor: pointer; font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.brand + .brand { margin-top: 70px; }
+.brand-head { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: flex-end; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px; margin-bottom: 26px; }
+.brand-head h3 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; margin: 4px 0 6px; }
+.brand-head .tag { margin: 0 0 8px; color: var(--sel); font-weight: 600; }
+.brand-head .sum { margin: 0; color: var(--muted); max-width: 60ch; font-size: 15px; }
+.swatches { display: flex; gap: 8px; }
+.swatches i { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); box-shadow: 0 1px 4px rgba(20, 20, 40, .15); }
+.name { font-size: 13px; color: var(--muted); }
+.board { columns: 3 280px; column-gap: 22px; }
+.proj { margin: 0 0 30px; break-inside: avoid; }
+.art { display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; position: relative; overflow: hidden; background: var(--panel); box-shadow: 0 1px 0 var(--line), 0 8px 24px rgba(20, 20, 40, .14); }
+.art img { display: block; width: 100%; height: auto; }
+.proj:hover .art, .proj:focus-within .art { outline: 2px solid var(--sel); outline-offset: 4px; }
+.proj figcaption { padding-top: 12px; }
+.proj h4 { font-family: Syne, 'IBM Plex Sans', sans-serif; font-size: 19px; line-height: 1.1; margin: 2px 0 4px; }
+.proj p { margin: 0; color: var(--muted); font-size: 14.5px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.chips span { font-size: 12px; border: 1px solid var(--line); border-radius: 5px; padding: 1px 8px; color: var(--muted); }
+#viewer { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; }
+#viewer::backdrop { background: rgba(10, 10, 16, .85); }
+#viewer figure { margin: 0; cursor: zoom-out; }
+#viewer img { display: block; max-width: 96vw; max-height: 88vh; width: auto; height: auto; margin: 0 auto; }
+#viewer figcaption { color: #fff; text-align: center; font-size: 14px; padding: 10px; }
+
+/* 8. Experience ------------------------------------------------------------ */
+.exp { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.exp li { display: grid; grid-template-columns: 170px 1fr; gap: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+@media (max-width: 640px) { .exp li { grid-template-columns: 1fr; gap: 4px; } }
+.exp time { color: var(--sel); font-weight: 600; font-size: 14px; }
+.exp h3 { font-size: 19px; margin-bottom: 4px; }
+.exp small { color: var(--muted); }
+.exp p { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+
+/* Education */
+.edu { display: grid; grid-template-columns: 170px 1fr; gap: 16px; border-left: 6px solid var(--sel); padding: 22px 24px; }
+.edu time { color: var(--sel); font-weight: 600; font-size: 14px; }
+.edu h3 { font-size: 22px; margin-bottom: 4px; }
+@media (max-width: 640px) { .edu { grid-template-columns: 1fr; gap: 4px; } }
+
+/* 9. Footer ---------------------------------------------------------------- */
+footer { background: var(--ink); color: var(--bg); padding: 60px 0 44px; }
+footer h2 { font-size: clamp(32px, 6.5vw, 68px); max-width: 15ch; }
+footer a { display: block; width: fit-content; font-size: 20px; margin: 6px 0; }
+footer .loc { opacity: .7; margin-top: 22px; }
