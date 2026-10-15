@@ -13,6 +13,7 @@ const PROJECTS = [
     ratio: "4:5",
     description: "Logo, color palette, and visual guidelines that help small businesses look consistent.",
     tools: ["Illustrator", "Photoshop"],
+    img: "assets/images/identitas-umkm.jpg",
     bg: "#2f5bff", fg: "#ffffff", accent: "#ffd23f", shape: 0
   },
   {
