@@ -103,24 +103,13 @@ h2 { font-size: clamp(30px, 5vw, 46px); font-weight: 800; margin-bottom: 10px; }
 .tool .pr, .tool .ae { background: #6c6cf0; }
 
 /* 7. Work (per brand) ------------------------------------------------------ */
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
-.filters[hidden] { display: none; }
-.filters button { cursor: pointer; font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
-.filters button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.brand + .brand { margin-top: 70px; }
-.brand-head { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: flex-end; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px; margin-bottom: 26px; }
+.brand-head { margin-top: 4px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: flex-end; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px; margin-bottom: 26px; }
 .brand-head h3 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; margin: 4px 0 6px; }
 .brand-head .tag { margin: 0 0 8px; color: var(--sel); font-weight: 600; }
 .brand-head .sum { margin: 0; color: var(--muted); max-width: 60ch; font-size: 15px; }
 .swatches { display: flex; gap: 8px; }
 .swatches i { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); box-shadow: 0 1px 4px rgba(20, 20, 40, .15); }
 .name { font-size: 13px; color: var(--muted); }
-.board { columns: 3 280px; column-gap: 22px; }
-.proj { margin: 0 0 30px; break-inside: avoid; }
-.art { display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; position: relative; overflow: hidden; background: var(--panel); box-shadow: 0 1px 0 var(--line), 0 8px 24px rgba(20, 20, 40, .14); }
-.art img { display: block; width: 100%; height: auto; }
-.proj:hover .art, .proj:focus-within .art { outline: 2px solid var(--sel); outline-offset: 4px; }
-.proj figcaption { padding-top: 12px; }
 .proj h4 { font-family: Syne, 'IBM Plex Sans', sans-serif; font-size: 19px; line-height: 1.1; margin: 2px 0 4px; }
 .proj p { margin: 0; color: var(--muted); font-size: 14.5px; }
 .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
@@ -151,3 +140,64 @@ footer { background: var(--ink); color: var(--bg); padding: 60px 0 44px; }
 footer h2 { font-size: clamp(32px, 6.5vw, 68px); max-width: 15ch; }
 footer a { display: block; width: fit-content; font-size: 20px; margin: 6px 0; }
 footer .loc { opacity: .7; margin-top: 22px; }
+
+/* Videos ------------------------------------------------------------------- */
+.vgrid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); align-items: start; }
+.vcard { margin: 0; }
+.vcard h4 { font-family: Syne, 'IBM Plex Sans', sans-serif; font-size: 18px; line-height: 1.1; margin: 10px 0 4px; }
+.vcard p { margin: 0; color: var(--muted); font-size: 14.5px; }
+.vid { position: relative; width: 100%; background: #000; box-shadow: 0 1px 0 var(--line), 0 8px 24px rgba(20, 20, 40, .14); }
+.vid video, .vid iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: contain; }
+.watch { margin-top: 10px; cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; padding: 6px 14px; border-radius: 999px; border: 2px solid var(--ink); background: var(--panel); color: var(--ink); }
+.watch:hover { background: var(--sel); border-color: var(--sel); color: #fff; }
+#player { border: 0; padding: 0; background: transparent; width: min(92vw, 880px); max-height: 96vh; overflow: visible; }
+#player::backdrop { background: rgba(10, 10, 16, .88); }
+#player .stage .vid { max-height: 78vh; margin: 0 auto; }
+#player .stage .vid[style*="9 / 16"] { width: min(100%, 44vh); }
+#player .x { position: absolute; right: 0; top: -44px; width: 38px; height: 38px; border-radius: 50%; border: 0; background: #fff; color: #15151c; font-size: 24px; line-height: 1; cursor: pointer; }
+#player .cap { color: #fff; text-align: center; font-size: 14px; padding: 10px; margin: 0; }
+
+/* Brand cards + brand dialog ----------------------------------------------- */
+.brand-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.bcard { display: block; text-align: left; font: inherit; color: inherit; cursor: pointer; padding: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform .15s, box-shadow .15s; }
+.bcard:hover, .bcard:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(20, 20, 40, .18); border-color: var(--sel); }
+.bcover { position: relative; display: block; aspect-ratio: 4 / 3; background: var(--bg); overflow: hidden; }
+.bcover img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.bsw { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; display: flex; }
+.bsw i { flex: 1; }
+.binfo { display: block; padding: 16px 18px 18px; }
+.binfo span { display: block; }
+.bt { font-family: Syne, 'IBM Plex Sans', sans-serif; font-weight: 800; font-size: 24px; line-height: 1.05; margin: 4px 0 4px; }
+.btag { color: var(--sel); font-weight: 600; font-size: 14px; }
+.bmeta { margin-top: 12px; font-size: 13px; color: var(--muted); }
+.bmeta b { float: right; color: var(--ink); }
+body:has(dialog[open]) { overflow: hidden; }
+#brand { width: min(1120px, 96vw); height: min(92vh, 1000px); max-width: none; max-height: none; border: 0; border-radius: 14px; padding: 0; background: var(--bg); color: var(--ink); box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
+#brand::backdrop { background: rgba(10, 10, 16, .78); }
+#brand .bd { height: 100%; overflow: auto; padding: 26px 24px 40px; }
+#brand .bd > .x { position: sticky; top: 0; float: right; z-index: 5; width: 40px; height: 40px; margin: 0 0 -40px 8px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; }
+#brand .sub { font-family: Syne, 'IBM Plex Sans', sans-serif; font-size: 22px; margin: 30px 0 16px; }
+
+
+/* Neat project grid -------------------------------------------------------- */
+.board { --th: 360px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); grid-auto-flow: dense; gap: 24px 22px; align-items: stretch; }
+.proj { margin: 0; display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: border-color .15s, box-shadow .15s; }
+.proj:hover, .proj:focus-within { border-color: var(--sel); box-shadow: 0 8px 24px rgba(20, 20, 40, .14); }
+.proj.wide { grid-column: span 2; }
+@media (max-width: 700px) { .proj.wide { grid-column: auto; } .board { --th: 300px; } }
+.art { display: block; width: 100%; height: var(--th); padding: 0; border: 0; cursor: zoom-in; position: relative; overflow: hidden; background: var(--bg); }
+.art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .25s; }
+.art:hover img { transform: scale(1.03); }
+.art::after { content: "View full size"; position: absolute; right: 10px; bottom: 10px; background: rgba(10, 10, 16, .78); color: #fff; font-size: 12px; padding: 3px 10px; border-radius: 999px; opacity: 0; transition: opacity .15s; }
+.art:hover::after, .art:focus-visible::after { opacity: 1; }
+.proj .vid { height: var(--th); aspect-ratio: auto !important; box-shadow: none; }
+.proj .vid video { object-fit: contain; }
+.proj figcaption { display: flex; flex-direction: column; flex: 1; padding: 14px 16px 16px; }
+.proj .chips { margin-top: auto; padding-top: 10px; }
+.proj .watch { align-self: flex-start; }
+
+/* A stretched last video tile becomes a horizontal card (video left, text right) */
+.proj.vcard.fill { flex-direction: row; }
+.proj.vcard.fill .vid { flex: 0 0 auto; width: calc(var(--th) * var(--vr)); max-width: 55%; }
+.proj.vcard.fill figcaption { justify-content: center; padding: 20px 24px; }
+.proj.vcard.fill .chips { margin-top: 10px; }

@@ -63,10 +63,11 @@
     <!-- Selected work, grouped per brand (rendered by js/main.js from js/projects.js) -->
     <section id="work">
       <h2>Selected work</h2>
-      <p class="lead">Design projects grouped per brand, from identity to print, social media, and campaigns. Click an image to view it full size.</p>
-      <div class="filters" id="filters" role="group" aria-label="Filter by brand"></div>
-      <div id="brands"></div>
+      <p class="lead">One card per brand. Click a brand to see all of its projects, photos, and videos.</p>
+      <div class="brand-grid" id="brands"></div>
+      <dialog id="brand" aria-label="Brand portfolio"><div class="bd"><button type="button" class="x" aria-label="Close">&times;</button><div id="brand-body"></div></div></dialog>
       <dialog id="viewer" aria-label="Project preview"><figure><img alt=""><figcaption></figcaption></figure></dialog>
+      <dialog id="player" aria-label="Video player"><button type="button" class="x" aria-label="Close video">&times;</button><div class="stage"></div><p class="cap"></p></dialog>
     </section>
 
     <!-- Experience -->
